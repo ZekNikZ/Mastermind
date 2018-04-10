@@ -1,10 +1,12 @@
 package apcsp.create.mastermind.window;
 
+import apcsp.create.mastermind.util.Util;
+
 import javax.swing.*;
-import java.awt.*;
 
 public class UsageWindow extends JFrame {
 
+    @SuppressWarnings("WeakerAccess")
     public UsageWindow() {
         super();
         this.setTitle("How to Use");
@@ -12,7 +14,7 @@ public class UsageWindow extends JFrame {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         JTextArea textArea = new JTextArea();
-        setSize(textArea, 600, 200);
+        Util.setSize(textArea, 600, 200);
         textArea.setEditable(false);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
@@ -33,14 +35,5 @@ public class UsageWindow extends JFrame {
 
     public static void main(String[] args) {
         new RulesWindow();
-    }
-
-    //TODO: Make everything use setSize
-    private static <T extends JComponent> T setSize(T comp, int width, int height) {
-        Dimension dim = new Dimension(width, height);
-        comp.setMinimumSize(dim);
-        comp.setPreferredSize(dim);
-        comp.setMaximumSize(dim);
-        return comp;
     }
 }

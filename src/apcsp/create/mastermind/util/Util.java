@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Util {
-    //TODO: Make everything use setSize
+    @SuppressWarnings("UnusedReturnValue")
     public static <T extends JComponent> T setSize(T comp, int width, int height) {
         Dimension dim = new Dimension(width, height);
         comp.setMinimumSize(dim);

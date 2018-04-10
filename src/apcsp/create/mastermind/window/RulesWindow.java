@@ -6,6 +6,7 @@ import javax.swing.*;
 
 public class RulesWindow extends JFrame {
 
+    @SuppressWarnings("WeakerAccess")
     public RulesWindow() {
         super();
         this.setTitle("Mastermind Rules");

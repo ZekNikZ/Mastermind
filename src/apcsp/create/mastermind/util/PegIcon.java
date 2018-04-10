@@ -9,6 +9,7 @@ public class PegIcon implements Icon {
     public static final int SMALL = 32;
     public static final int LARGE = 64;
     public static final PegIcon WHITE_ICON_SMALL = new PegIcon(SMALL, Color.WHITE);
+    @SuppressWarnings("UnusedDeclaration")
     public static final PegIcon WHITE_ICON_LARGE = new PegIcon(LARGE, Color.WHITE);
 
     private int size;
