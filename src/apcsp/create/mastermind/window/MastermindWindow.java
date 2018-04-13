@@ -23,6 +23,7 @@ public class MastermindWindow extends JFrame {
     // Game Control Fields
     private MastermindGame game;
     private boolean moveButtonsEnabled = true;
+    private GameOverWindow gameOverWindow;
 
     // Basic constructor that sets up the window and shows it.
     public MastermindWindow() {
@@ -111,6 +112,7 @@ public class MastermindWindow extends JFrame {
                     this.moveButtonsEnabled = false;
                     updateMoveButtons();
                     if (this.game.wasWon()) {
+                        gameOverWindow = new GameOverWindow(this, game);
                         this.submitButton.setText("New Game");
                         this.submitButtonState = 2;
                     } else {
@@ -128,13 +130,8 @@ public class MastermindWindow extends JFrame {
                     addToHistoryPanel(box);
                     break;
                 case 2:
-                    resetHistoryPanel();
-                    this.game = new MastermindGame();
-                    this.submitButton.setText("Submit");
-                    this.responseColors = null;
-                    this.moveButtonsEnabled = true;
-                    updateMoveButtons();
-                    this.submitButtonState = 0;
+                    if (gameOverWindow != null) gameOverWindow.dispose();
+                    newGame();
                     break;
             }
         });
@@ -172,6 +169,10 @@ public class MastermindWindow extends JFrame {
             this.game = this.game.restart();
         });
         gameMenu.add(restartGame);
+
+        JMenuItem endGame = new JMenuItem("Quit Game");
+        endGame.addActionListener(e -> System.exit(0));
+        gameMenu.add(endGame);
 
         menuBar.add(gameMenu);
 
@@ -255,5 +256,15 @@ public class MastermindWindow extends JFrame {
                 this.responseButtons[i].setIcon(PegIcon.WHITE_ICON_SMALL);
             }
         }
+    }
+
+    void newGame() {
+        resetHistoryPanel();
+        this.game = new MastermindGame();
+        this.submitButton.setText("Submit");
+        this.responseColors = null;
+        this.moveButtonsEnabled = true;
+        updateMoveButtons();
+        this.submitButtonState = 0;
     }
 }

@@ -4,10 +4,9 @@ import apcsp.create.mastermind.util.Util;
 
 import javax.swing.*;
 
-public class RulesWindow extends JFrame {
+class RulesWindow extends JFrame {
 
-    @SuppressWarnings("WeakerAccess")
-    public RulesWindow() {
+    RulesWindow() {
         super();
         this.setTitle("Mastermind Rules");
         this.setSize(400, 400);
@@ -32,9 +31,5 @@ public class RulesWindow extends JFrame {
         this.pack();
 
         this.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        new RulesWindow();
     }
 }

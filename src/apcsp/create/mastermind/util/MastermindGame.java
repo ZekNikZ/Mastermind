@@ -6,6 +6,7 @@ public class MastermindGame {
 
     private PegColor[] solution;
     public Move lastMove;
+    public int moveCount;
 
     public MastermindGame() {
         solution = getRandomSolution();
@@ -25,6 +26,7 @@ public class MastermindGame {
     public PegColor[] submitMove(Move move) {
         Move newMove = calculateResponsePegs(move);
         lastMove = newMove;
+        moveCount++;
         assert newMove != null;
         return newMove.responsePegs;
     }

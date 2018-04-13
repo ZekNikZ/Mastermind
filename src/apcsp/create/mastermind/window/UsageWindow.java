@@ -4,10 +4,9 @@ import apcsp.create.mastermind.util.Util;
 
 import javax.swing.*;
 
-public class UsageWindow extends JFrame {
+class UsageWindow extends JFrame {
 
-    @SuppressWarnings("WeakerAccess")
-    public UsageWindow() {
+    UsageWindow() {
         super();
         this.setTitle("How to Use");
         this.setSize(400, 400);
@@ -31,9 +30,5 @@ public class UsageWindow extends JFrame {
         this.pack();
 
         this.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        new RulesWindow();
     }
 }
