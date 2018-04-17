@@ -55,6 +55,8 @@ class GameOverWindow extends JFrame {
         this.pack();
 
         this.setVisible(true);
+
+        this.setLocationRelativeTo(null);
     }
 
     public static void main(String[] args) {

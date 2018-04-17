@@ -8,6 +8,8 @@ public class MastermindGame {
     public Move lastMove;
     public int moveCount;
 
+    private static Random rand = new Random();
+
     public MastermindGame() {
         solution = getRandomSolution();
         System.out.println();
@@ -16,7 +18,6 @@ public class MastermindGame {
     private PegColor[] getRandomSolution() {
         PegColor[] sol = new PegColor[4];
         PegColor[] values = PegColor.values();
-        Random rand = new Random();
         for (int i = 0; i < 4; i++) {
             sol[i] = values[rand.nextInt(values.length)];
         }
